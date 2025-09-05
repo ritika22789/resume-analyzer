@@ -13,10 +13,10 @@ interface ATSProps {
 const ATS: React.FC<ATSProps> = ({ score, suggestions }) => {
   // Determine background gradient based on score
   const gradientClass = score > 69
-    ? 'from-green-100'
+    ? 'from-[#FF6767]'      
     : score > 49
-      ? 'from-yellow-100'
-      : 'from-red-100';
+      ? 'from-[#FF9A9A]'    
+      : 'from-[#FFC1C1]';   
 
   // Determine icon based on score
   const iconSrc = score > 69
@@ -38,14 +38,14 @@ const ATS: React.FC<ATSProps> = ({ score, suggestions }) => {
       <div className="flex items-center gap-4 mb-6">
         <img src={iconSrc} alt="ATS Score Icon" className="w-12 h-12" />
         <div>
-          <h2 className="text-2xl font-bold">ATS Score - {score}/100</h2>
+          <h2 className="text-2xl font-bold text-black">{`ATS Score - ${score}/100`}</h2>
         </div>
       </div>
 
       {/* Description section */}
       <div className="mb-6">
-        <h3 className="text-xl font-semibold mb-2">{subtitle}</h3>
-        <p className="text-gray-600 mb-4">
+        <h3 className="text-xl font-semibold mb-2 text-black">{subtitle}</h3>
+        <p className="text-black/80 mb-4">
           This score represents how well your resume is likely to perform in Applicant Tracking Systems used by employers.
         </p>
 
@@ -58,7 +58,7 @@ const ATS: React.FC<ATSProps> = ({ score, suggestions }) => {
                 alt={suggestion.type === "good" ? "Check" : "Warning"}
                 className="w-5 h-5 mt-1"
               />
-              <p className={suggestion.type === "good" ? "text-green-700" : "text-amber-700"}>
+              <p className={suggestion.type === "good" ? "text-black font-semibold" : "text-black/80"}>
                 {suggestion.tip}
               </p>
             </div>
@@ -67,7 +67,7 @@ const ATS: React.FC<ATSProps> = ({ score, suggestions }) => {
       </div>
 
       {/* Closing encouragement */}
-      <p className="text-gray-700 italic">
+      <p className="text-black/80 italic">
         Keep refining your resume to improve your chances of getting past ATS filters and into the hands of recruiters.
       </p>
     </div>

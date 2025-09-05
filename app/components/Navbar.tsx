@@ -1,15 +1,23 @@
-import {Link} from "react-router";
+import { Link } from "react-router";
 
 const Navbar = () => {
     return (
-        <nav className="navbar">
+        <nav className="fixed top-0 left-0 w-full bg-[#E6E0FF] shadow-md flex justify-between items-center px-6 py-4 h-20 z-50">
             <Link to="/">
-                <p className="text-2xl font-bold text-gradient">RESUMIND</p>
+                <img 
+                    src="/images/resume1.png"  
+                    alt="App Logo" 
+                    className="h-16 w-auto"
+                />
             </Link>
-            <Link to="/upload" className="primary-button w-fit">
+            <Link 
+                to="/upload" 
+                className="w-fit px-12 py-4 bg-[#FF6767] text-[#FFFFFF] font-semibold rounded-2xl hover:bg-[#FF8282] shadow-md hover:shadow-lg transition"
+            >
                 Upload Resume
             </Link>
         </nav>
     )
 }
-export default Navbar
+
+export default Navbar;
